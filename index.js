@@ -55,19 +55,39 @@ Task 4: Create a function that takes a sorted array of numbers and a target valu
  * Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
  */
 
-const calculator = (num1, operator, num2) => {
-  switch (operator) {
-    case '+':
-      return num1 + num2;
-    case '-':
-      return num1 - num2;
-    case '*':
-      return num2 * num2;
-    case '/':
-      return num1 / num2;
-    default:
-      'please input correct value and operator';
+// const calculator = (num1, operator, num2) => {
+//   switch (operator) {
+//     case '+':
+//       return num1 + num2;
+//     case '-':
+//       return num1 - num2;
+//     case '*':
+//       return num2 * num2;
+//     case '/':
+//       return num1 / num2;
+//     default:
+//       'please input correct value and operator';
+//   }
+// };
+// const result = calculator(5, '+', 10);
+// console.log(result);
+
+/**
+ * Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
+ */
+const generateRandomPassword = () => {
+  const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+  const numbers = '0123456789';
+  const specialCharacters = '!@#$%^&*()_-+=<>?/[]{}|';
+  const allCharacters =
+    uppercaseLetters + lowercaseLetters + numbers + specialCharacters;
+  let password = '';
+  for (let i = 0; i < allCharacters.length; i++) {
+    const randomIndex = Math.floor(Math.random() * allCharacters.length);
+    password += allCharacters[randomIndex];
   }
+  return password;
 };
-const result = calculator(5, '+', 10);
+const result = generateRandomPassword();
 console.log(result);
