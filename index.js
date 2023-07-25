@@ -11,3 +11,14 @@
 // };
 // const inputString = 'Hello World';
 // console.log(reverseString(inputString));
+
+/***
+ * Task 2 : Create a function that takes an array of numbers as input and returns the sum of all positive numbers in the array.
+ */
+
+const numbers = [2, -5, 10, -3, 7];
+
+const positiveNumFunc = (numbers) => {
+  return numbers.reduce((sum, num) => (num > 0 ? sum + num : sum), 0);
+};
+console.log(positiveNumFunc(numbers));
