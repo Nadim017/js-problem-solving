@@ -28,25 +28,46 @@
 Task 4: Create a function that takes a sorted array of numbers and a target value as input. The function should find two numbers in the array that add up to the target value. Return an array containing the indices of the two numbers.
 
  */
-const array = [1, 3, 6, 8, 11, 15];
+// const array = [1, 3, 6, 8, 11, 15];
 
-const findTwoNumbersWithSum = (array, targetValue) => {
-  let left = 0;
-  let right = array.length - 1;
+// const findTwoNumbersWithSum = (array, targetValue) => {
+//   let left = 0;
+//   let right = array.length - 1;
 
-  while (left < right) {
-    const sum = array[left] + array[right];
+//   while (left < right) {
+//     const sum = array[left] + array[right];
 
-    if (sum === targetValue) {
-      return [left, right];
-    } else if (sum < targetValue) {
-      left++;
-    } else {
-      right--;
-    }
+//     if (sum === targetValue) {
+//       return [left, right];
+//     } else if (sum < targetValue) {
+//       left++;
+//     } else {
+//       right--;
+//     }
+//   }
+
+//   return null;
+// };
+
+// console.log(findTwoNumbersWithSum(array, 12));
+
+/**
+ * Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
+ */
+
+const calculator = (num1, operator, num2) => {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num2 * num2;
+    case '/':
+      return num1 / num2;
+    default:
+      'please input correct value and operator';
   }
-
-  return null;
 };
-
-console.log(findTwoNumbersWithSum(array, 9));
+const result = calculator(5, '+', 10);
+console.log(result);
