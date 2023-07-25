@@ -96,30 +96,51 @@ Task 4: Create a function that takes a sorted array of numbers and a target valu
  * Task 7: Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value.
  */
 
-const romanToInteger = (romanNumber) => {
-  const romanNumbers = {
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000,
-  };
-  let result = 0;
-  let preValue = 0;
-  for (let i = romanNumber.length - 1; i >= 0; i--) {
-    const currentValue = romanNumbers[romanNumber[i]];
+// const romanToInteger = (romanNumber) => {
+//   const romanNumbers = {
+//     I: 1,
+//     V: 5,
+//     X: 10,
+//     L: 50,
+//     C: 100,
+//     D: 500,
+//     M: 1000,
+//   };
+//   let result = 0;
+//   let preValue = 0;
+//   for (let i = romanNumber.length - 1; i >= 0; i--) {
+//     const currentValue = romanNumbers[romanNumber[i]];
 
-    if (currentValue < preValue) {
-      result -= currentValue;
-    } else {
-      result += currentValue;
+//     if (currentValue < preValue) {
+//       result -= currentValue;
+//     } else {
+//       result += currentValue;
+//     }
+
+//     preValue = currentValue;
+//   }
+//   return result;
+// };
+// const result = romanToInteger('XXI');
+// console.log(result);
+
+/**
+ * Task 8: Implement a JavaScript function to find the second smallest element in an array of numbers. The function should return the second smallest number.
+ */
+
+const inputArray = [5, 2, 8, 1, 9, 4];
+const findSecondSmallestNumber = (inputArray) => {
+  let smallestNumber = Infinity;
+  let secondSmallestNumber = Infinity;
+  for (const num of inputArray) {
+    if (num < smallestNumber) {
+      secondSmallestNumber = smallestNumber;
+      smallestNumber = num;
+    } else if (num < secondSmallestNumber && num !== smallestNumber) {
+      secondSmallestNumber = num;
     }
-
-    preValue = currentValue;
   }
-  return result;
+  return secondSmallestNumber;
 };
-const result = romanToInteger('XXI');
+const result = findSecondSmallestNumber(inputArray);
 console.log(result);
