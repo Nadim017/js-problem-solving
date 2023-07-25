@@ -75,19 +75,51 @@ Task 4: Create a function that takes a sorted array of numbers and a target valu
 /**
  * Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
  */
-const generateRandomPassword = () => {
-  const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
-  const numbers = '0123456789';
-  const specialCharacters = '!@#$%^&*()_-+=<>?/[]{}|';
-  const allCharacters =
-    uppercaseLetters + lowercaseLetters + numbers + specialCharacters;
-  let password = '';
-  for (let i = 0; i < allCharacters.length; i++) {
-    const randomIndex = Math.floor(Math.random() * allCharacters.length);
-    password += allCharacters[randomIndex];
+// const generateRandomPassword = () => {
+//   const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//   const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+//   const numbers = '0123456789';
+//   const specialCharacters = '!@#$%^&*()_-+=<>?/[]{}|';
+//   const allCharacters =
+//     uppercaseLetters + lowercaseLetters + numbers + specialCharacters;
+//   let password = '';
+//   for (let i = 0; i < allCharacters.length; i++) {
+//     const randomIndex = Math.floor(Math.random() * allCharacters.length);
+//     password += allCharacters[randomIndex];
+//   }
+//   return password;
+// };
+// const result = generateRandomPassword();
+// console.log(result);
+
+/**
+ * Task 7: Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value.
+ */
+
+const romanToInteger = (romanNumber) => {
+  const romanNumbers = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let result = 0;
+  let preValue = 0;
+  for (let i = romanNumber.length - 1; i >= 0; i--) {
+    const currentValue = romanNumbers[romanNumber[i]];
+
+    if (currentValue < preValue) {
+      result -= currentValue;
+    } else {
+      result += currentValue;
+    }
+
+    preValue = currentValue;
   }
-  return password;
+  return result;
 };
-const result = generateRandomPassword();
+const result = romanToInteger('XXI');
 console.log(result);
